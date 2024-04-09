@@ -1,3 +1,5 @@
+console.log( "js is linked" )
+
 const date = new Date();
 const monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
 ];
@@ -42,22 +44,39 @@ const addItem = () =>
   {
     // Create a new list item element
     const newItem = document.createElement( 'li' );
+    const newButtonHolder = document.createElement( "div" );
+    newButtonHolder.classList.add( 'buttonHolder' );
     // Create a button for toggling strikethrough
     const strikethroughButton = document.createElement( 'button' );
+    strikethroughButton.setAttribute( 'type', 'button' );
+    // Create a trash button
+    const trashButton = document.createElement( 'button' );
+    trashButton.setAttribute( "type", 'button' );
+    // Set strikethrough button icon via innerHTML
+    strikethroughButton.innerHTML = `<img src="./note-square-outlined-button-with-a-pencil.png" alt="Strikethrough Button">`;
+    // Set trash button icon via innerHTML
+    trashButton.innerHTML = `<img src="./trash-bin.png" alt="Trash Button">`;
+    // Add class to to style list strikethrough button
     strikethroughButton.classList.add( "strikeButton" );
-    strikethroughButton.innerHTML = `<img src="./note-square-outlined-button-with-a-pencil.png" alt="Strike Button">`;
+    // Add class to to style list trash button
+    trashButton.classList.add( "trashButton" );
     // Add event listener to the button for toggling strikethrough
-    strikethroughButton.addEventListener( 'click', toggleStrikethrough );
-    // Set the text content of the new list item to the input value
     newItem.textContent = newItemText;
-    // Append the toggle button to the new list item
-    newItem.appendChild( strikethroughButton );
+    // Append the strikethrough button to the new list item
+    newItem.appendChild( newButtonHolder );
+    newButtonHolder.appendChild( strikethroughButton );
+    // Append the trash button to the new list item
+    newButtonHolder.appendChild( trashButton );
     // Append the new list item to the itemList
     itemList.appendChild( newItem );
     // Clear the input field after adding the item
     itemInput.value = '';
     // Update the item count
     updateItemCount();
+    strikethroughButton.addEventListener( 'click', toggleStrikethrough );
+    // Add event listener to the button for trashing list item
+    trashButton.addEventListener( "click", removeItem );
+    // Set the text content of the new list item to the input value
   }
 }
 
@@ -103,8 +122,12 @@ const updateItemCount = () =>
 // Function to toggle the strikethrough style of a list item
 const toggleStrikethrough = ( event ) =>
 {
+  // Log event target and its parent element for debugging
+  console.log( 'toggleStrikethrough Event target:', event.target );
+  console.log( 'toggleStrikethrough Parent element:', event.target.parentNode );
+
   // Get the parent list item
-  const listItem = event.target.parentNode;
+  const listItem = event.target.parentNode.parentNode.parentNode;
   // Toggle the 'strikethrough' class
   listItem.classList.toggle( 'strikethrough' );
   console.log( "stikethrough button clicked" );
@@ -113,20 +136,25 @@ const toggleStrikethrough = ( event ) =>
 // Function to remove an item from the list
 const removeItem = ( event ) =>
 {
-  // Check if the event target (the clicked element) is a list item
-  if ( event.target.tagName === 'LI' )
+  // Log event target and its parent element for debugging
+  console.log( 'removeItem Event target:', event.target );
+  console.log( 'removeItem Parent element:', event.target.parentNode );
+
+  // Check if the event target (the clicked element) has the class 'trashButton'
+  if ( event.target.classList.contains( 'trashButton' ) )
   {
-    // Remove the clicked list item from the DOM
-    event.target.remove();
+    // Remove the parent list item of the clicked trash button from the DOM
+    event.target.parentNode.parentNode.remove();
     // Update the item count after removing the item
     updateItemCount();
   }
+  console.log( "trash button clicked" );
 }
 
 // Add event listeners
 addItemBtn.addEventListener( 'click', inputLogger );
 addItemBtn.addEventListener( 'click', addItem );
-itemList.addEventListener( 'click', removeItem );
+
 // Add event listener to the input field for Enter key press
 addItemBtn.addEventListener( 'keypress', ( event ) =>
 {
@@ -134,5 +162,20 @@ addItemBtn.addEventListener( 'keypress', ( event ) =>
   if ( event.keyCode === 13 )
   {
     addItem(); // Call addItem function if Enter key is pressed
+  }
+} );
+
+// Add event listener to the itemList to handle clicks on the strikethrough and trash buttons
+itemList.addEventListener( 'click', ( event ) =>
+{
+  // Check if the clicked element is the strikethrough button
+  if ( event.target.classList.contains( 'strikeButton' ) )
+  {
+    toggleStrikethrough( event );
+  }
+  // Check if the clicked element is the trash button
+  else if ( event.target.classList.contains( 'trashButton' ) )
+  {
+    removeItem( event );
   }
 } );

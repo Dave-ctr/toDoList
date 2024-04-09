@@ -71,7 +71,7 @@ button
   font-size: var(--FS);
   padding: 8px;
   border-radius: 8px;
-  margin-left: 4px;
+
 }
 
 ul
@@ -80,6 +80,8 @@ ul
   border: 2px solid var(--PRIMARY);
   width: 90vw;
   list-style-type: none;
+  border-radius: 8px;
+  margin-bottom: 32px;
 }
 
 li
@@ -87,17 +89,39 @@ li
   display: flex;
   justify-content: space-between;
   color: whitesmoke;
-  margin: 24px 12px;
+  margin: 24px 24px;
+  border-bottom: 2px solid var(--PRIMARY);
+}
+
+.buttonHolder
+{
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .strikeButton
 {
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: rgba(85, 95, 105);
   border-radius: 50%;
+  margin-bottom: 18px;
+}
+
+.trashButton
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(85, 95, 105);
+  border-radius: 50%;
+  margin-bottom: 18px;
 }
 
 img
@@ -109,4 +133,5 @@ img
 .strikethrough
 {
   text-decoration: line-through;
+  color: var(--PRIMARY);
 }
