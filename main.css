@@ -1,3 +1,5 @@
+@import 'https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
+
 *
 {
   padding: 0;
@@ -9,6 +11,9 @@
 {
   /* COLORS */
   --PRIMARY: #51E5FF;
+
+  /* FONTS */
+  --FS: 24px;
 }
 
 body
@@ -17,7 +22,8 @@ body
   flex-direction: column;
   justify-content: center;
   background-color: #172A3A;
-  font-size: 24px;
+  font-size: var(--FS);
+  font-family: Prompt, sans-serif;
 }
 
 nav
@@ -37,4 +43,70 @@ h2,
 h3
 {
   color: var(--PRIMARY);
+}
+
+main
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+
+input
+{
+  background-color: var(--PRIMARY);
+  border: none;
+  font-size: var(--FS);
+  padding: 8px;
+  border-radius: 8px;
+  margin-right: 4px;
+}
+
+button
+{
+  background-color: var(--PRIMARY);
+  border: none;
+  font-size: var(--FS);
+  padding: 8px;
+  border-radius: 8px;
+  margin-left: 4px;
+}
+
+ul
+{
+  margin-top: 32px;
+  border: 2px solid var(--PRIMARY);
+  width: 90vw;
+  list-style-type: none;
+}
+
+li
+{
+  display: flex;
+  justify-content: space-between;
+  color: whitesmoke;
+  margin: 24px 12px;
+}
+
+.strikeButton
+{
+  display: flex;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: rgba(85, 95, 105);
+  border-radius: 50%;
+}
+
+img
+{
+  width: 1rem;
+  height: 1rem;
+}
+
+.strikethrough
+{
+  text-decoration: line-through;
 }
