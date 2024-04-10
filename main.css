@@ -110,6 +110,7 @@ li
   background-color: rgba(85, 95, 105);
   border-radius: 50%;
   margin-bottom: 18px;
+  cursor: pointer;
 }
 
 .trashButton
@@ -122,6 +123,7 @@ li
   background-color: rgba(85, 95, 105);
   border-radius: 50%;
   margin-bottom: 18px;
+  cursor: pointer;
 }
 
 img

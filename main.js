@@ -38,7 +38,7 @@ const form = document.getElementById( 'myForm' );
 const addItem = () =>
 {
   // Get the value of the item input and remove leading/trailing whitespace
-  const newItemText = itemInput.value.trim();
+  const newItemText = `<p id="item-${ itemCount }">${ itemInput.value.trim() }</p>`
   // Check if the input value is not empty
   if ( newItemText !== '' )
   {
@@ -61,7 +61,7 @@ const addItem = () =>
     // Add class to to style list trash button
     trashButton.classList.add( "trashButton" );
     // Add event listener to the button for toggling strikethrough
-    newItem.textContent = newItemText;
+    newItem.innerHTML = newItemText;
     // Append the strikethrough button to the new list item
     newItem.appendChild( newButtonHolder );
     newButtonHolder.appendChild( strikethroughButton );
@@ -127,7 +127,8 @@ const toggleStrikethrough = ( event ) =>
   console.log( 'toggleStrikethrough Parent element:', event.target.parentNode );
 
   // Get the parent list item
-  const listItem = event.target.parentNode.parentNode.parentNode;
+  const listItem = document.getElementById( "item-" + itemNumber );
+
   // Toggle the 'strikethrough' class
   listItem.classList.toggle( 'strikethrough' );
   console.log( "stikethrough button clicked" );
