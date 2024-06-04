@@ -42,7 +42,7 @@ A simple ToDo List application built with vanilla JavaScript, HTML, and CSS. Thi
 4. Click on the trash bin icon next to a task to remove it.
 
 ## File Structure
-
+```plaintext
 toDoList/
 ├── .vscode/
 │   └── settings.json
@@ -51,7 +51,7 @@ toDoList/
 ├── main.js
 ├── note-square-outlined-button-with-a-pencil.png
 └── trash-bin.png
-
+```
 
 - **.vscode/**: Contains settings for VS Code.
 - **index.html**: The main HTML file for the application.
@@ -72,5 +72,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For any inquiries, please reach out to:
 
-- Your Name - [davejtake2@gmail.com](mailto:davejtake2@gmail.com)
+- Dave - [davejtake2@gmail.com](mailto:davejtake2@gmail.com)
 - GitHub: [DaveJamieson](https://github.com/DaveJamieson)
