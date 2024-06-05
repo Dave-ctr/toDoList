@@ -74,14 +74,14 @@ const addItem = () =>
     trashButton.setAttribute( "id", `item-${ itemList.children.length }` );
 
     // Set strikethrough button icon via innerHTML
-    strikethroughButton.innerHTML = `<img src="./note-square-outlined-button-with-a-pencil.png" alt="Strikethrough Button">`;
+    strikethroughButton.innerHTML = `<img src="assets/note-square-outlined-button-with-a-pencil.png" alt="Strikethrough Button">`;
 
     // Give strikethrough button icon <img> element an id 
     let strikethroughButtonChild = strikethroughButton.firstChild;
     strikethroughButtonChild.setAttribute( "id", `item-${ itemList.children.length }` );
 
     // Set trash button icon via innerHTML
-    trashButton.innerHTML = `<img src="./trash-bin.png" alt="Trash Button">`;
+    trashButton.innerHTML = `<img src="assets/trash-bin.png" alt="Trash Button">`;
 
     // Give trash button icon <img> element an id 
     let trashButtonChild = trashButton.firstChild;
