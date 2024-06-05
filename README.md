@@ -2,6 +2,8 @@
 
 A simple ToDo List application built with vanilla JavaScript, HTML, and CSS. This project allows users to add and remove tasks, with a dynamic count of active tasks. Currently, tasks do not persist across sessions, but future updates may include local storage functionality.
 
+<a href='https://davejamieson.github.io/toDoList/'>Try It Out Here!!</a>
+
 <img src='./assets/ToDo.png' alt='ToDo List Without Content'>
 
 <img src='./assets/ToDo1.png' alt='ToDo List With Content'>
